@@ -1,0 +1,48 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 3.15rem;
+  padding: 0.85rem 1.1rem;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  cursor: pointer;
+  transition:
+    border-color 180ms ease,
+    transform 180ms ease,
+    background 180ms ease;
+}
+
+.button:hover {
+  border-color: rgba(120, 168, 255, 0.4);
+  background: rgba(120, 168, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+.button[data-active="true"] {
+  border-color: rgba(124, 241, 210, 0.48);
+  background: rgba(124, 241, 210, 0.14);
+  color: var(--text);
+}
+
+.compact {
+  min-height: auto;
+  padding: 0.55rem 0.8rem;
+}
+
+.mark {
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hint {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.compact .hint {
+  display: none;
+}

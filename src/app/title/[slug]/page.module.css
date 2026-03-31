@@ -1,0 +1,262 @@
+.shell {
+  width: min(100%, 1500px);
+  margin: 0 auto;
+  padding: 1.4rem 1.1rem 5rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.back,
+.headerTag,
+.eyebrow,
+.relatedMeta {
+  font-size: 0.76rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.back {
+  color: var(--text);
+}
+
+.headerTag,
+.eyebrow,
+.relatedMeta {
+  color: var(--text-muted);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.34fr) minmax(0, 1fr);
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(145deg, rgba(255, 106, 61, 0.08), transparent 36%),
+    rgba(12, 15, 20, 0.9);
+  box-shadow: var(--shadow);
+}
+
+.posterBlock {
+  padding: 0.38rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 30%),
+    #090c10;
+}
+
+.poster {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: contain;
+  object-position: center center;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.08), transparent 34%),
+    #090c10;
+}
+
+.heroCopy {
+  display: grid;
+  align-content: start;
+  gap: 0.85rem;
+}
+
+.title,
+.sectionTitle,
+.relatedTitle {
+  font-family: var(--font-syne), sans-serif;
+  letter-spacing: -0.04em;
+  color: var(--text);
+}
+
+.title {
+  font-size: clamp(2.4rem, 5vw, 4.6rem);
+  line-height: 0.92;
+}
+
+.meta {
+  display: flex;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.logline {
+  font-size: 1.05rem;
+  line-height: 1.68;
+  color: rgba(245, 238, 223, 0.94);
+}
+
+.summary,
+.note,
+.relatedCopy,
+.playerFallback p {
+  line-height: 1.72;
+  color: var(--text-soft);
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.35rem;
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--line);
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease;
+}
+
+.primary {
+  background: linear-gradient(135deg, var(--coral), var(--sun));
+  border-color: transparent;
+  color: #0d1015;
+  font-weight: 700;
+}
+
+.secondary {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.primary:hover,
+.secondary:hover {
+  transform: translateY(-2px);
+}
+
+.secondary:hover {
+  border-color: var(--line-strong);
+}
+
+.playerSection,
+.relatedSection {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.sectionHeader {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.sectionTitle {
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  line-height: 0.94;
+}
+
+.playerFrame,
+.playerFallback {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(145deg, rgba(255, 211, 107, 0.06), transparent 36%),
+    #06090d;
+}
+
+.playerFrame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.playerFallback {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 0.85rem;
+  padding: 1.5rem;
+}
+
+.playerFallback strong {
+  font-family: var(--font-syne), sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 0.94;
+}
+
+.relatedGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.relatedCard {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0.95rem;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 60%),
+    rgba(16, 19, 25, 0.92);
+}
+
+.relatedPoster {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: contain;
+  object-position: center center;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.08), transparent 34%),
+    #090c10;
+}
+
+.relatedBody {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.relatedTitle {
+  font-size: 1.38rem;
+  line-height: 0.95;
+}
+
+@media (max-width: 1100px) {
+  .hero,
+  .relatedGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .shell {
+    padding-inline: 0.9rem;
+  }
+
+  .actions,
+  .header {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .primary,
+  .secondary {
+    width: 100%;
+  }
+}
