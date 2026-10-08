@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ArchivePlayer } from "@/components/ArchivePlayer";
 import { PosterMedia } from "@/components/PosterMedia";
 import { WatchlistToggle } from "@/components/WatchlistToggle";
 import { catalog, catalogBySlug } from "@/lib/catalog";
@@ -99,7 +100,7 @@ export default async function TitleDetailPage({ params }: DetailPageProps) {
               rel="noreferrer"
               target="_blank"
             >
-              YouTube trailer
+              Find trailers on YouTube
             </a>
             <WatchlistToggle slug={item.slug} />
           </div>
@@ -113,12 +114,7 @@ export default async function TitleDetailPage({ params }: DetailPageProps) {
         </div>
         {item.embedUrl ? (
           <div className={styles.playerFrame}>
-            <iframe
-              allow="autoplay; fullscreen"
-              allowFullScreen
-              src={item.embedUrl}
-              title={`${item.title} player`}
-            />
+            <ArchivePlayer title={item.title} src={item.mediaUrl} poster={item.posterUrl} sourceUrl={item.watchUrl} duration={item.durationSeconds} />
           </div>
         ) : (
           <div className={styles.playerFallback}>
@@ -133,7 +129,7 @@ export default async function TitleDetailPage({ params }: DetailPageProps) {
               rel="noreferrer"
               target="_blank"
             >
-              Watch the trailer
+              Find a trailer
             </a>
           </div>
         )}

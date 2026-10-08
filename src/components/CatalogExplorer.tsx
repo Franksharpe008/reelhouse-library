@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { startTransition, useDeferredValue, useState } from "react";
 import type { CatalogItem, EditorialLane } from "@/lib/catalog";
+import { ArchivePlayer } from "./ArchivePlayer";
 import { PosterMedia } from "./PosterMedia";
 import { WatchlistToggle } from "./WatchlistToggle";
 import styles from "./CatalogExplorer.module.css";
@@ -268,12 +269,7 @@ export function CatalogExplorer({
         <div className={styles.playerStage} key={screeningItem.slug}>
           <div className={styles.playerFrame}>
             {screeningItem.embedUrl ? (
-              <iframe
-                allow="autoplay; fullscreen"
-                allowFullScreen
-                src={screeningItem.embedUrl}
-                title={`${screeningItem.title} player`}
-              />
+              <ArchivePlayer title={screeningItem.title} src={screeningItem.mediaUrl} poster={screeningItem.posterUrl} sourceUrl={screeningItem.watchUrl} duration={screeningItem.durationSeconds} />
             ) : (
               <div className={styles.playerFallback}>
                 <span className={styles.sectionEyebrow}>Queued up</span>
@@ -321,7 +317,7 @@ export function CatalogExplorer({
               rel="noreferrer"
               target="_blank"
             >
-              YouTube trailer
+              Find trailers on YouTube
             </a>
             <WatchlistToggle slug={screeningItem.slug} />
           </div>
@@ -390,7 +386,7 @@ export function CatalogExplorer({
                       rel="noreferrer"
                       target="_blank"
                     >
-                      YouTube trailer
+                      Find trailers on YouTube
                     </a>
                     <WatchlistToggle compact slug={item.slug} />
                   </div>
@@ -460,7 +456,7 @@ export function CatalogExplorer({
                       rel="noreferrer"
                       target="_blank"
                     >
-                      YouTube trailer
+                      Find trailers on YouTube
                     </a>
                     <WatchlistToggle compact slug={item.slug} />
                   </div>
@@ -534,7 +530,7 @@ export function CatalogExplorer({
                       rel="noreferrer"
                       target="_blank"
                     >
-                      YouTube trailer
+                      Find trailers on YouTube
                     </a>
                     <Link className={styles.detailLink} href={`/title/${item.slug}`}>
                       Details
@@ -578,7 +574,7 @@ export function CatalogExplorer({
           <div className={styles.footerColumn}>
             <strong className={styles.footerLabel}>Always ready</strong>
             <p className={styles.footerCopy}>
-              Every title keeps a detail page, a trailer button, and a spot on
+              Every title keeps a detail page, a trailer search, and a spot on
               the local watchlist.
             </p>
           </div>

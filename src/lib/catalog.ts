@@ -16,6 +16,8 @@ type BaseItem = {
   summary: string;
   watchUrl: string;
   embedUrl: string | null;
+  mediaUrl: string;
+  durationSeconds: number;
   trailerUrl: string;
   watchLabel: string;
   logline: string;
@@ -50,6 +52,11 @@ function cleanDisplayTitle(title: string) {
 }
 
 function cleanSummary(summary: string) {
+  if (summary.endsWith("...")) {
+    const trimmed = summary.slice(0, -3).trim();
+    const sentenceEnd = trimmed.lastIndexOf(". ");
+    if (sentenceEnd > 30) return trimmed.slice(0, sentenceEnd + 1);
+  }
   const next = summary.replace(/\.\.\.\s*$/u, "").trim();
   if (!next) {
     return summary.trim();
@@ -114,6 +121,8 @@ function normalizeArchive(seed: ArchiveSeed): CatalogItem {
     summary,
     watchUrl: buildArchiveWatch(seed.archiveId),
     embedUrl: buildArchiveEmbed(seed.archiveId),
+    mediaUrl: seed.mediaUrl,
+    durationSeconds: seed.durationSeconds,
     trailerUrl: buildYouTubeSearch(`${title} official trailer`),
     watchLabel: "Open source page",
     logline: buildLogline(summary),

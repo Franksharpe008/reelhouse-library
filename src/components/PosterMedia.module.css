@@ -1,0 +1,4 @@
+.frame { display: block; position: relative; overflow: hidden; }
+.title { position: absolute; inset: auto 0 0; padding: 12% 8% 9%; background: linear-gradient(transparent,#111820 20%); color: #f6ecd4; text-align: left; min-height: 33%; display: flex; flex-direction: column; justify-content: flex-end; }
+.title small { font: 8px/1.5 system-ui,sans-serif; letter-spacing: 2px; opacity: .65; margin-bottom: 7px; }
+.title strong { font-family: Georgia,serif; font-size: clamp(15px,1.65vw,29px); font-weight: 500; line-height: 1.08; }

@@ -1,0 +1,6 @@
+.player { width: 100%; height: 100%; display: grid; grid-template-rows: minmax(0, 1fr) auto; background: #06090d; }
+.player video { width: 100%; height: 100%; min-height: 0; object-fit: contain; background: #06090d; }
+.status { min-height: 38px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; color: #b6bec8; font-size: 11px; line-height: 1.6; padding: 8px 12px; background: #10151b; border-top: 1px solid #26313e; }
+.status a { color: #ffd36b; margin-left: auto; }
+.status button { cursor: pointer; padding: 3px 8px; border: 1px solid #657282; color: #f4f0e7; background: transparent; }
+@media(max-width:640px) { .status { font-size: 10px; gap: 5px; } }

@@ -1,5 +1,8 @@
-import type { CSSProperties } from "react";
+"use client";
+
+import { useState, type CSSProperties } from "react";
 import Image from "next/image";
+import styles from "./PosterMedia.module.css";
 
 type PosterMediaProps = {
   alt: string;
@@ -22,35 +25,26 @@ export function PosterMedia({
   style,
   width,
 }: PosterMediaProps) {
-  if (src.startsWith("data:")) {
-    // The generated SVG posters are data URLs, so `next/image` does not add value here.
-    return (
-      <>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          alt={alt}
-          className={className}
-          height={height}
-          loading={priority ? "eager" : "lazy"}
-          src={src}
-          style={style}
-          width={width}
-        />
-      </>
-    );
-  }
-
+  const [wide, setWide] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const title = alt.replace(/ poster$/u, "");
   return (
+    <span className={`${className} ${styles.frame}`} style={style}>
+    {!failed && (
     <Image
       alt={alt}
-      className={className}
       height={height}
       priority={priority}
       sizes={sizes}
       src={src}
-      style={style}
+      style={{ width: "100%", height: wide ? "76%" : "100%", position: "absolute", inset: 0, objectFit: wide ? "cover" : "contain", objectPosition: style?.objectPosition }}
+      onLoad={event => setWide(event.currentTarget.naturalWidth > event.currentTarget.naturalHeight * 1.1)}
+      onError={() => setFailed(true)}
       unoptimized
       width={width}
     />
+    )}
+    {(wide || failed) && <span className={styles.title}><small>REELHOUSE COLLECTION</small><strong>{title}</strong></span>}
+    </span>
   );
 }
