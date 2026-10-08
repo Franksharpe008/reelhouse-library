@@ -28,17 +28,21 @@ Relevant files: `src/components/CatalogExplorer.tsx`, `src/components/WatchlistT
 
 ## Run locally
 
-Use a Node.js version supported by the checked-in Next.js release, then:
+Use Node.js 22.18 or newer (the small test suite uses native TypeScript stripping), then:
 
 ```bash
 npm ci
 npm run dev
 ```
 
-Open `http://localhost:3000`. Available checks: `npm run lint` and `npm run build`; serve a completed build with `npm run start`.
+Open `http://localhost:3000`. Available checks: `npm test`, `npm run lint` and `npm run build`; serve a completed build with `npm run start`.
 
 ## Scope
 
 This is a portfolio application, not a streaming subscription service. It does not supply user accounts, licensed commercial distribution, or a hosted watchlist database. External media rights and availability belong to their respective sources.
 
 Created through AI-assisted development directed by Frank D. Sharpe, with emphasis on understandable interaction, saved state, and a working deployed experience.
+
+## October 8 watchlist correction
+
+All save buttons for a title now synchronize in the same tab and respond to storage changes. A failed write shows feedback without claiming the title was saved; invalid stored data is preserved rather than silently overwritten. Three focused tests, lint and the production build passed. Browser checks confirmed three controls updating together, persistence after reload and successful removal.

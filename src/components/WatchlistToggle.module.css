@@ -46,3 +46,6 @@
 .compact .hint {
   display: none;
 }
+
+.error { display: block; color: #ffcda8; font-size: 0.85rem; margin-top: 0.4rem; }
+.button:disabled { cursor: wait; opacity: 0.6; }
